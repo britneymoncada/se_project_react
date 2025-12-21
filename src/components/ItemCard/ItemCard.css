@@ -1,0 +1,27 @@
+.card {
+  max-width: 325px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.card__item {
+  font-size: 16px;
+  width: fit-content;
+  text-align: center;
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  padding: 2px 12px;
+  position: absolute;
+  top: 15px;
+  left: 116px;
+  margin: 0;
+}
+
+.card__img {
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url(../../vendor/fonts/CabinetGrotesk-Extrabold.otf);
+}
+
+.app {
+  background-color: #f3f3f3;
+  font-family: "Cabinet Grotesk";
+}
+
+.app__content {
+  max-width: 1360px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 40px;
+}
