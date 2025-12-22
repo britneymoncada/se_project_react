@@ -2,82 +2,83 @@ export const weatherOptions = [
   {
     day: true,
     condition: "clear",
-    url: new URL("../assets/day/clear.png", import.meta.url).href,
+    url: new URL("../images/day/clear.svg", import.meta.url).href,
   },
 
   {
     day: false,
-    condition: "cloudy",
-    url: new URL("../assets/day/cloudy.png", import.meta.url).href,
+    condition: "clouds",
+    url: new URL("../images/day/cloudy.svg", import.meta.url).href,
   },
 
   {
     day: false,
     condition: "fog",
-    url: new URL("../assets/day/fog.png", import.meta.url).href,
+    url: new URL("../images/day/fog.svg", import.meta.url).href,
   },
 
   {
     day: false,
     condition: "rain",
-    url: new URL("../assets/day/rain.png", import.meta.url).href,
+    url: new URL("../components/a/day/rain.svg", import.meta.url).href,
   },
 
   {
     day: false,
     condition: "snow",
-    url: new URL("../assets/day/snow.png", import.meta.url).href,
+    url: new URL("../images/day/snow.svg", import.meta.url).href,
   },
 
   {
     day: false,
-    condition: "storm",
-    url: new URL("../assets/day/storm.png", import.meta.url).href,
+    condition: "thunderstorm",
+    url: new URL("../images/day/thunderstorm.svg", import.meta.url).href,
   },
 
   {
     day: false,
     condition: "clear",
-    url: new URL("../assets/night/night-clear.png", import.meta.url).href,
+    url: new URL("../images/night/night-clear.svg", import.meta.url).href,
   },
 
   {
     day: false,
-    condition: "cloudy",
-    url: new URL("../assets/night/night-cloudy.png", import.meta.url).href,
+    condition: "clouds",
+    url: new URL("../images/night/night-cloud.svg", import.meta.url).href,
   },
 
   {
     day: false,
     condition: "fog",
-    url: new URL("../assets/night/night-fog.png", import.meta.url).href,
+    url: new URL("../images/night/night-fog.svg", import.meta.url).href,
   },
 
   {
     day: false,
     condition: "rain",
-    url: new URL("../assets/night/night-rain.png", import.meta.url).href,
+    url: new URL("../images/night/night-rain.svg", import.meta.url).href,
   },
 
   {
     day: false,
     condition: "snow",
-    url: new URL("../assets/night/night-snow.png", import.meta.url).href,
+    url: new URL("../images/night/night-snow.svg", import.meta.url).href,
   },
 
   {
     day: false,
-    condition: "storm",
-    url: new URL("../assets/night/night-storm.png", import.meta.url).href,
+    condition: "thunderstorm",
+    url: new URL("../images/night/night-thunderstorm.svg", import.meta.url)
+      .href,
   },
 ];
 
 export const defaultWeatherOptions = {
   day: {
-    url: new URL("../assets/day/default.png", import.meta.url).href,
+    url: new URL("../images/day/default.svg", import.meta.url).href,
   },
   night: {
-    url: new URL("../assets/night/night-default.png", import.meta.url).href,
+    url: new URL("../images/night/night-default.svg", import.meta.url).href,
   },
 };
 
@@ -145,7 +146,7 @@ export const defaultClothingItems = [
   {
     _id: 11,
     name: "Shorts",
-    weather: "Hot",
+    weather: "hot",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Shorts.png?etag=d728c496643f610de8d8fea92dd915ba",
   },
   {
@@ -181,8 +182,8 @@ export const defaultClothingItems = [
 ];
 
 export const coordinates = {
-  latitude: "33.078",
-  longitude: "-96.827",
+  latitude: 75.1652,
+  longitude: 39.9526,
 };
 
-export const APIKey = "a6d271e2fafd173af6eb407f6484bdb6";
+export const apiKey = "a6d271e2fafd173af6eb407f6484bdb6";

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinates, APIKey } from "../../utils/constants";
+import { coordinates, apiKey } from "../../utils/constants";
+import { defaultClothingItems } from "../../utils/constants";
 
 import "./App.css";
 import Header from "../Header/Header";
@@ -16,6 +17,7 @@ function App() {
     city: "",
   });
 
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
@@ -33,7 +35,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIKey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -50,8 +52,9 @@ function App() {
       </div>
 
       <ModalWithForm
+        name="add-garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
         title="New garment"
       >
@@ -59,6 +62,7 @@ function App() {
           Name{" "}
           <input
             id="name"
+            required
             type="text"
             className="modal__input"
             placeholder="Name"
@@ -67,7 +71,7 @@ function App() {
         <label htmlFor="imageUrl" className="modal__label">
           Image{" "}
           <input
-            type="text"
+            type="url"
             id="imageUrl"
             className="modal__input"
             placeholder="Image URL"
@@ -79,7 +83,9 @@ function App() {
           <label htmlFor="hot" className="modal__label modal__label_type-radio">
             <input
               type="radio"
+              required
               id="hot"
+              name="weather"
               className="modal__input modal__radio-input"
             />{" "}
             Hot
@@ -91,6 +97,7 @@ function App() {
           >
             <input
               type="radio"
+              name="weather"
               id="warm"
               className="modal__input modal__radio-input"
             />{" "}
@@ -103,6 +110,7 @@ function App() {
           >
             <input
               type="radio"
+              name="weather"
               id="cold"
               className="modal__input modal__radio-input"
             />{" "}
