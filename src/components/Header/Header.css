@@ -17,7 +17,7 @@
 }
 
 .header__add-clothes-btn {
-  margin: 0 20px 0 auto;
+  margin: 0 20px;
   padding: 0;
   background-color: transparent;
   border: none;
@@ -30,5 +30,18 @@
 }
 
 .header__username {
-  margin: 0 88px 0 0;
+  margin: 0 12px 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.header__nav-link {
+  color: black;
+  text-decoration: none;
 }
