@@ -11,7 +11,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { addItem, getItems } from "../../utils/api";
+import { addItem, deleteItem, getItems } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -40,17 +40,26 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleDeleteItem = (itemId) => {
+    deleteItem(itemId)
+      .then(() => {
+        setClothingItems(clothingItems.filter((item) => item._id !== itemId));
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
   const onAddItem = (inputValues) => {
     const newCardData = {
       name: inputValues.name,
       imageUrl: inputValues.imageUrl,
       weather: inputValues.weatherType,
-      _id: Date.now().toString(),
     };
 
     addItem(newCardData)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
+        console.log("New item added with ID:", data._id);
         closeActiveModal();
       })
       .catch(console.error);
@@ -99,6 +108,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  onAddClick={handleAddClick}
                 />
               }
             />
@@ -118,6 +128,7 @@ function App() {
           card={selectedCard}
           onClose={closeActiveModal}
           isOpen={activeModal === "preview"}
+          onDelete={handleDeleteItem}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>

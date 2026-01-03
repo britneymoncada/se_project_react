@@ -2,7 +2,7 @@ import "./Header.css";
 import logo from "../../images/logo.svg";
 import avatarDefault from "../../images/avatar.svg";
 import ToggleSwitch from "../toggleSwitch/toggleSwitch";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 function Header({ handleAddClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -13,11 +13,14 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <div className="header__container">
-        <img className="header__logo" src={logo} alt="WTWR Logo" />
+        <Link to="/" className="header__nav-link">
+          <img className="header__logo" src={logo} alt="WTWR Logo" />
+        </Link>
         <p className="header__date-and-location">
           {currentDate}, {weatherData.city}
         </p>
       </div>
+
       <div className="header__nav">
         <ToggleSwitch />
         <button

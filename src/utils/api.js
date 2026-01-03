@@ -20,9 +20,9 @@ export function addItem({ name, imageUrl, weather }) {
   }).then(handleServerResponse);
 }
 
-export function removeItem(itemID) {
-  return fetch(`${baseUrl}/item/${itemID}`, {
+export function deleteItem(itemID) {
+  return fetch(`${baseUrl}/items/${itemID}`, {
     method: "DELETE",
-    headers,
+    headers: headers,
   }).then(handleServerResponse);
 }
