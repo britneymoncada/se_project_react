@@ -20,7 +20,6 @@ function ItemModal({ activeModal, onClose, card, onDelete }) {
             className="modal__delete"
             type="button"
             onClick={() => {
-              console.log("Deleting item with ID:", card._id); // Add this
               onDelete(card._id);
             }}
           >

@@ -20,7 +20,7 @@ export const weatherOptions = [
   {
     day: false,
     condition: "rain",
-    url: new URL("../components/a/day/rain.svg", import.meta.url).href,
+    url: new URL("../images/day/rain.svg", import.meta.url).href,
   },
 
   {

@@ -59,7 +59,6 @@ function App() {
     addItem(newCardData)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
-        console.log("New item added with ID:", data._id);
         closeActiveModal();
       })
       .catch(console.error);
@@ -99,6 +98,7 @@ function App() {
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   cards={clothingItems}
+                  currentTemperatureUnit={currentTemperatureUnit}
                 />
               }
             />

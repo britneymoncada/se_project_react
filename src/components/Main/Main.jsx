@@ -4,7 +4,7 @@ import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 import { useState } from "react";
 
-function Main({ weatherData, handleCardClick, cards }) {
+function Main({ weatherData, handleCardClick, cards, currentTemperatureUnit }) {
   return (
     <main>
       <WeatherCard
@@ -14,7 +14,8 @@ function Main({ weatherData, handleCardClick, cards }) {
       />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp.F} &deg; F / You may want to wear:
+          Today is {weatherData.temp.F} &deg; {currentTemperatureUnit}/ You may
+          want to wear:
         </p>
         <ul className="cards__list">
           {cards
