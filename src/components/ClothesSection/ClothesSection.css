@@ -7,6 +7,11 @@
   margin-bottom: 16px;
 }
 
+.clothes-section__text {
+  margin-right: 20px;
+  font-weight: 700;
+}
+
 .clothes-section__items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
@@ -14,4 +19,11 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.clothes-section__add-button {
+  color: #00000099;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
 }

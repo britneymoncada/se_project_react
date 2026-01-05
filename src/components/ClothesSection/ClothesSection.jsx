@@ -9,7 +9,7 @@ export default function ClothesSection({
   return (
     <div className="clothes-section">
       <div className="clothes-section__row">
-        <p className="clothes-section__text">Text</p>
+        <p className="clothes-section__text">Your items</p>
         <button className="clothes-section__add-button" onClick={onAddClick}>
           + Add new
         </button>

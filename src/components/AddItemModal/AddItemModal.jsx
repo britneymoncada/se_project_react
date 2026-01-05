@@ -8,11 +8,11 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     weatherType: "",
   };
 
-  const { values, handleChange } = useForm(defaultValues);
+  const { values, handleChange, setValues, resetForm } = useForm(defaultValues);
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onAddItem(values);
+    onAddItem(values, resetForm);
   }
 
   return (
@@ -71,6 +71,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
         <label htmlFor="warm" className="modal__label modal__label_type-radio">
           <input
             type="radio"
+            required
             name="weatherType"
             id="warm"
             className="modal__input modal__radio-input"
@@ -84,6 +85,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
         <label htmlFor="cold" className="modal__label modal__label_type-radio">
           <input
             type="radio"
+            required
             name="weatherType"
             id="cold"
             className="modal__input modal__radio-input"

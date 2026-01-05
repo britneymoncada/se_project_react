@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
-import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureContext/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnitContext";
 
 import "./App.css";
 import Header from "../Header/Header";
@@ -49,17 +49,20 @@ function App() {
       .catch(console.error);
   };
 
-  const onAddItem = (inputValues) => {
+  const onAddItem = (inputValues, resetForm) => {
     const newCardData = {
       name: inputValues.name,
       imageUrl: inputValues.imageUrl,
       weather: inputValues.weatherType,
     };
 
+    console.log("Sending data:", newCardData);
+
     addItem(newCardData)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
         closeActiveModal();
+        resetForm();
       })
       .catch(console.error);
   };
@@ -98,7 +101,6 @@ function App() {
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   cards={clothingItems}
-                  currentTemperatureUnit={currentTemperatureUnit}
                 />
               }
             />
