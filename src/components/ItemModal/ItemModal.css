@@ -1,23 +1,110 @@
-.modal__footer-container {
+.modal {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  z-index: 5000;
+}
+
+.modal__opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__content {
+  position: relative;
+
+  background-color: #fff;
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  z-index: 5001;
+}
+
+.modal__content_type-image {
+  max-width: 498px;
+}
+
+.modal__image-container {
+  position: relative;
+}
+
+.modal__image {
+  display: block;
+  width: 100%;
+}
+
+.modal__header {
+  position: absolute;
+
+  top: 15px;
+  left: 15px;
+  right: 15px;
+
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  align-items: center;
+}
+
+.modal__close {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  background-color: transparent;
+
   padding: 0;
-  align-items: flex-start;
+
+  cursor: pointer;
+}
+
+.modal__close-icon {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+}
+
+.modal__like-button {
+  width: 18px;
+  height: 15px;
+
+  border: none;
+  background-color: transparent;
+
+  background-image: url("../../images/like-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__like-button_active {
+  background-image: url("../../images/like-button-active.svg");
 }
 
 .modal__caption {
-  margin: 0 0 12px;
+  margin: 0;
+
+  padding: 4px 12px;
+
+  background-color: white;
+  border-radius: 4px;
 }
 
-.modal__delete {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: #ff4d00;
-}
-
-.modal__weather {
-  margin: 0;
+.modal__footer {
+  padding: 20px;
 }

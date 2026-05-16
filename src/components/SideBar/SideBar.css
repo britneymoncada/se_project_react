@@ -16,3 +16,19 @@
   font-weight: 700;
   white-space: nowrap;
 }
+
+.sidebar__signout-btn {
+  margin-top: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.sidebar__edit-btn {
+  margin-top: 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
