@@ -14,6 +14,10 @@ function ItemModal({ activeModal, onClose, card, onDelete, onCardLike }) {
   }`;
 
   const handleLike = () => {
+    if (!currentUser?._id) {
+      return;
+    }
+
     onCardLike(card, isLiked);
   };
   return (
@@ -21,7 +25,11 @@ function ItemModal({ activeModal, onClose, card, onDelete, onCardLike }) {
       className={`modal ${activeModal === "preview" ? "modal__opened" : ""}`}
     >
       <div className="modal__content modal__content_type-image">
-        <button className="modal__close" onClick={onClose} type="button">
+        <button
+          className="modal__close modal__close_type_preview"
+          onClick={onClose}
+          type="button"
+        >
           <img src={closeIcon} alt="Close" className="modal__close-icon" />
         </button>
 
@@ -31,11 +39,13 @@ function ItemModal({ activeModal, onClose, card, onDelete, onCardLike }) {
           <div className="modal__header">
             <p className="modal__caption">{card.name}</p>
 
-            <button
-              type="button"
-              className={itemLikeButtonClassName}
-              onClick={handleLike}
-            />
+            {currentUser?._id && (
+              <button
+                type="button"
+                className={itemLikeButtonClassName}
+                onClick={handleLike}
+              />
+            )}
           </div>
         </div>
 

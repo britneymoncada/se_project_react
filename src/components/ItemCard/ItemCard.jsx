@@ -1,13 +1,17 @@
 import "./ItemCard.css";
 
-function ItemCard({ item, onCardClick, onCardLike, currentUser }) {
+function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
   const isLiked = item.likes.some((id) => id === currentUser?._id);
 
-  const itemLikeButtonClassName = `modal__like-button ${
-    isLiked ? "modal__like-button_active" : ""
+  const itemLikeButtonClassName = `card__like-button ${
+    isLiked ? "card__like-button_active" : ""
   }`;
 
   const handleLike = () => {
+    if (!isLoggedIn) {
+      return;
+    }
+
     onCardLike(item, isLiked);
   };
 
@@ -20,11 +24,13 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser }) {
       <div className="card__header">
         <p className="card__name">{item.name}</p>
 
-        <button
-          type="button"
-          className={itemLikeButtonClassName}
-          onClick={handleLike}
-        ></button>
+        {isLoggedIn && (
+          <button
+            type="button"
+            className={itemLikeButtonClassName}
+            onClick={handleLike}
+          />
+        )}
       </div>
 
       <img

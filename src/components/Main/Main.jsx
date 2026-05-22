@@ -4,7 +4,14 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
 import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnitContext";
 
-function Main({ weatherData, handleCardClick, cards, onCardLike, isLoggedIn }) {
+function Main({
+  weatherData,
+  handleCardClick,
+  cards,
+  onCardLike,
+  currentUser,
+  isLoggedIn,
+}) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   return (
     <main>
@@ -30,6 +37,7 @@ function Main({ weatherData, handleCardClick, cards, onCardLike, isLoggedIn }) {
                   item={item}
                   onCardClick={handleCardClick}
                   onCardLike={onCardLike}
+                  currentUser={currentUser}
                   isLoggedIn={isLoggedIn}
                 />
               );

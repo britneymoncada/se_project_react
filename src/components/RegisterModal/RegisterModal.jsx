@@ -14,7 +14,6 @@ const RegisterModal = ({ isOpen, onClose, onRegister }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onRegister(values);
-    resetForm();
   };
 
   return (

@@ -1,3 +1,5 @@
+import { handleServerResponse } from "./api";
+
 const BASE_URL = "http://localhost:3001";
 
 export const register = ({ name, avatar, email, password }) => {
@@ -7,7 +9,7 @@ export const register = ({ name, avatar, email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then((res) => (res.ok ? res.json() : Promise.reject(res)));
+  }).then(handleServerResponse);
 };
 
 export const authorize = ({ email, password }) => {
@@ -27,5 +29,5 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => (res.ok ? res.json() : Promise.reject(res)));
+  }).then(handleServerResponse);
 };

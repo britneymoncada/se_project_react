@@ -9,6 +9,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
 import "./App.css";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
@@ -139,7 +140,7 @@ function App() {
   const handleRegister = ({ name, avatar, email, password }) => {
     register({ name, avatar, email, password })
       .then(() => {
-        handleLogin({ email, password });
+        return handleLogin({ email, password });
       })
       .catch(console.error);
   };
@@ -206,6 +207,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     cards={clothingItems}
                     onCardLike={handleCardLike}
+                    currentUser={currentUser}
                     isLoggedIn={isLoggedIn}
                   />
                 }
@@ -213,18 +215,16 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  isLoggedIn ? (
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       onAddClick={handleAddClick}
-                      onSignOut={handleSignOut}
-                      onEditProfile={handleEditProfileClick}
                       onCardLike={handleCardLike}
+                      handleEditProfileClick={handleEditProfileClick}
+                      onSignOut={handleSignOut}
                     />
-                  ) : (
-                    <Navigate to="/" replace />
-                  )
+                  </ProtectedRoute>
                 }
               />
             </Routes>
