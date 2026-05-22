@@ -40,11 +40,11 @@ The app allows users to:
 
 ## Backend Repository
 
-:contentReference[oaicite:0]{index=0}
+https://github.com/britneymoncada/se_project_express
 
 ## Frontend Repository
 
-:contentReference[oaicite:1]{index=1}
+https://github.com/britneymoncada/se_project_react
 
 ## Running the Project
 
