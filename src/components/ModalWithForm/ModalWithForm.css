@@ -10,7 +10,9 @@
   background-color: #0000004d;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
 }
 
 .modal__opened {
@@ -102,5 +104,29 @@
   border-radius: 4px;
   color: #ffffff;
   margin-top: 32px;
+  cursor: pointer;
+}
+
+.modal__button-container {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.modal__secondary-button {
+  border: none;
+
+  background: transparent;
+
+  padding: 0;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  font-size: 16px;
+
+  line-height: 20px;
+
   cursor: pointer;
 }

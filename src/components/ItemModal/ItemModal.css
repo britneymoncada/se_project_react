@@ -26,31 +26,8 @@
   padding: 0;
 
   cursor: pointer;
-}
 
-.modal__content_type-image {
-  max-width: 498px;
-}
-
-.modal__image-container {
-  position: relative;
-}
-
-.modal__image {
-  display: block;
-  width: 100%;
-}
-
-.modal__header {
-  position: absolute;
-
-  top: 15px;
-  left: 15px;
-  right: 15px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  z-index: 1;
 }
 
 .modal__close-icon {
@@ -60,35 +37,68 @@
   display: block;
 }
 
-.modal__like-button {
-  width: 18px;
-  height: 15px;
+.modal__image {
+  display: block;
 
-  border: none;
-  background-color: transparent;
-
-  background-image: url("../../images/like-button.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  cursor: pointer;
-  padding: 0;
+  width: 100%;
 }
 
-.modal__like-button_active {
-  background-image: url("../../images/like-button-active.svg");
+.modal__footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  padding: 20px 32px 32px;
+}
+
+.modal__footer-container {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
 }
 
 .modal__caption {
   margin: 0;
 
-  padding: 4px 12px;
+  font-size: 20px;
 
-  background-color: white;
-  border-radius: 4px;
+  line-height: 24px;
+
+  font-weight: 700;
+
+  color: #000;
 }
 
-.modal__footer {
-  padding: 20px;
+.modal__weather {
+  margin: 0;
+
+  font-size: 20px;
+
+  line-height: 24px;
+
+  color: #000;
+}
+
+.modal__delete {
+  border: none;
+
+  background: transparent;
+
+  padding: 0;
+
+  margin-top: 4px;
+
+  color: #ff4d00;
+
+  font-size: 20px;
+
+  line-height: 24px;
+
+  font-weight: 700;
+
+  cursor: pointer;
 }

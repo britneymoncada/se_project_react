@@ -26,7 +26,6 @@ export default function Profile({
         clothingItems={userItems}
         onAddClick={onAddClick}
         onCardLike={onCardLike}
-        currentUser={currentUser}
       />
     </section>
   );

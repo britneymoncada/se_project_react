@@ -3,23 +3,12 @@ import { useContext } from "react";
 import CurrentUserContext from "../../context/CurrentUserContext";
 import closeIcon from "../../images/modal__close.svg";
 
-function ItemModal({ activeModal, onClose, card, onDelete, onCardLike }) {
+function ItemModal({ activeModal, onClose, card, onDelete }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const isOwn = card.owner === currentUser._id;
-  const isLiked = card.likes?.some((id) => id === currentUser?._id);
+  const isOwn =
+    currentUser?._id && (card.owner?._id || card.owner) === currentUser._id;
 
-  const itemLikeButtonClassName = `modal__like-button ${
-    isLiked ? "modal__like-button_active" : ""
-  }`;
-
-  const handleLike = () => {
-    if (!currentUser?._id) {
-      return;
-    }
-
-    onCardLike(card, isLiked);
-  };
   return (
     <div
       className={`modal ${activeModal === "preview" ? "modal__opened" : ""}`}
@@ -33,38 +22,26 @@ function ItemModal({ activeModal, onClose, card, onDelete, onCardLike }) {
           <img src={closeIcon} alt="Close" className="modal__close-icon" />
         </button>
 
-        <div className="modal__image-container">
-          <img src={card.imageUrl} alt={card.name} className="modal__image" />
-
-          <div className="modal__header">
-            <p className="modal__caption">{card.name}</p>
-
-            {currentUser?._id && (
-              <button
-                type="button"
-                className={itemLikeButtonClassName}
-                onClick={handleLike}
-              />
-            )}
-          </div>
-        </div>
+        <img src={card.imageUrl} alt={card.name} className="modal__image" />
 
         <div className="modal__footer">
           <div className="modal__footer-container">
-            {isOwn && (
-              <button
-                className="modal__delete"
-                type="button"
-                onClick={() => {
-                  onDelete(card._id);
-                }}
-              >
-                Delete item
-              </button>
-            )}
+            <p className="modal__caption">{card.name}</p>
+
+            <p className="modal__weather">Weather: {card.weather}</p>
           </div>
 
-          <p className="modal__weather">Weather: {card.weather}</p>
+          {isOwn && (
+            <button
+              className="modal__delete"
+              type="button"
+              onClick={() => {
+                onDelete(card._id);
+              }}
+            >
+              Delete item
+            </button>
+          )}
         </div>
       </div>
     </div>

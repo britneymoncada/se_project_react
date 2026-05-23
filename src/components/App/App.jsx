@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
@@ -42,6 +42,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -135,6 +136,7 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser({});
+    navigate("/");
   };
 
   const handleRegister = ({ name, avatar, email, password }) => {
@@ -207,8 +209,6 @@ function App() {
                     handleCardClick={handleCardClick}
                     cards={clothingItems}
                     onCardLike={handleCardLike}
-                    currentUser={currentUser}
-                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
@@ -221,7 +221,7 @@ function App() {
                       clothingItems={clothingItems}
                       onAddClick={handleAddClick}
                       onCardLike={handleCardLike}
-                      handleEditProfileClick={handleEditProfileClick}
+                      onEditProfile={handleEditProfileClick}
                       onSignOut={handleSignOut}
                     />
                   </ProtectedRoute>
@@ -248,19 +248,20 @@ function App() {
             onClose={closeActiveModal}
             isOpen={activeModal === "preview"}
             onDelete={handleDeleteItem}
-            onCardLike={handleCardLike}
           />
 
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={closeActiveModal}
             onLogin={handleLogin}
+            onRegisterClick={() => setActiveModal("register")}
           />
 
           <RegisterModal
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onRegister={handleRegister}
+            onLoginClick={() => setActiveModal("login")}
           />
 
           <EditProfileModal

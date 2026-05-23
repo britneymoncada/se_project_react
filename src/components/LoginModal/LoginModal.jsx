@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
-const LoginModal = ({ isOpen, onClose, onLogin }) => {
+const LoginModal = ({ isOpen, onClose, onLogin, onRegisterClick }) => {
   const defaultValues = {
     email: "",
     password: "",
@@ -22,6 +22,8 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
       onClose={onClose}
       onSubmit={handleSubmit}
       buttonText="Log In"
+      secondaryButtonText="or Sign Up"
+      onSecondaryButtonClick={onRegisterClick}
     >
       <label className="modal__label">
         Email

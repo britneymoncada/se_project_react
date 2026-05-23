@@ -6,7 +6,6 @@ export default function ClothesSection({
   onCardClick,
   onAddClick,
   onCardLike,
-  currentUser,
 }) {
   return (
     <div className="clothes-section">
@@ -24,7 +23,6 @@ export default function ClothesSection({
               item={item}
               onCardClick={onCardClick}
               onCardLike={onCardLike}
-              currentUser={currentUser}
             />
           );
         })}
