@@ -5,42 +5,62 @@
 
   border-radius: 16px;
 
-  overflow: hidden;
+  overflow: visible;
 
   background-color: #fff;
 }
 
 .modal__close_type_preview {
-  width: 16px;
-  height: 16px;
-
   position: absolute;
 
   top: 20px;
   right: 20px;
 
-  border: none;
+  width: 40px;
+  height: 40px;
 
-  background-color: transparent;
+  border: none;
+  background: transparent;
 
   padding: 0;
 
   cursor: pointer;
 
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal__close-icon {
-  width: 100%;
-  height: 100%;
+  width: 20px;
+  height: 20px;
 
   display: block;
+
+  opacity: 0.4;
 }
 
 .modal__image {
+  width: 100%;
+  max-height: 60vh;
+
+  object-fit: cover;
+
   display: block;
 
-  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.modal__footer .card__like-button {
+  width: 18px;
+  height: 15px;
+
+  margin-top: 6px;
+
+  background-size: contain;
+
+  flex-shrink: 0;
 }
 
 .modal__footer {
@@ -101,4 +121,13 @@
   font-weight: 700;
 
   cursor: pointer;
+}
+
+.modal__content {
+  width: 498px;
+
+  overflow: hidden;
+  border-radius: 16px;
+
+  background: white;
 }

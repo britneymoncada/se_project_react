@@ -83,6 +83,10 @@ function App() {
         setClothingItems((cards) =>
           cards.map((card) => (card._id === item._id ? updatedCard : card)),
         );
+
+        setSelectedCard((prev) =>
+          prev._id === updatedCard._id ? updatedCard : prev,
+        );
       })
       .catch(console.error);
   };
@@ -248,6 +252,7 @@ function App() {
             onClose={closeActiveModal}
             isOpen={activeModal === "preview"}
             onDelete={handleDeleteItem}
+            onCardLike={handleCardLike}
           />
 
           <LoginModal

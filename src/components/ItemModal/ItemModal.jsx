@@ -1,13 +1,27 @@
 import "./ItemModal.css";
 import { useContext } from "react";
-import CurrentUserContext from "../../context/CurrentUserContext";
-import closeIcon from "../../images/modal__close.svg";
 
-function ItemModal({ activeModal, onClose, card, onDelete }) {
+import CurrentUserContext from "../../context/CurrentUserContext";
+
+import previewCloseIcon from "../../images/close-preview.svg";
+
+function ItemModal({ activeModal, onClose, card, onDelete, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
 
   const isOwn =
     currentUser?._id && (card.owner?._id || card.owner) === currentUser._id;
+
+  const isLiked = (card.likes || []).some((like) => {
+    return (like._id || like) === currentUser?._id;
+  });
+
+  const itemLikeButtonClassName = `card__like-button ${
+    isLiked ? "card__like-button_active" : ""
+  }`;
+
+  const handleLike = () => {
+    onCardLike(card, isLiked);
+  };
 
   return (
     <div
@@ -19,7 +33,11 @@ function ItemModal({ activeModal, onClose, card, onDelete }) {
           onClick={onClose}
           type="button"
         >
-          <img src={closeIcon} alt="Close" className="modal__close-icon" />
+          <img
+            src={previewCloseIcon}
+            alt="Close"
+            className="modal__close-icon"
+          />
         </button>
 
         <img src={card.imageUrl} alt={card.name} className="modal__image" />
@@ -31,7 +49,7 @@ function ItemModal({ activeModal, onClose, card, onDelete }) {
             <p className="modal__weather">Weather: {card.weather}</p>
           </div>
 
-          {isOwn && (
+          {isOwn ? (
             <button
               className="modal__delete"
               type="button"
@@ -41,6 +59,12 @@ function ItemModal({ activeModal, onClose, card, onDelete }) {
             >
               Delete item
             </button>
+          ) : (
+            <button
+              type="button"
+              className={itemLikeButtonClassName}
+              onClick={handleLike}
+            />
           )}
         </div>
       </div>

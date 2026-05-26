@@ -6,34 +6,23 @@
 }
 
 .card__header {
-  width: calc(100% - 24px);
-  box-sizing: border-box;
   position: absolute;
-  top: 15px;
-  left: 12px;
-  right: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.modal__like-button {
-  width: 18px;
-  height: 15px;
-  border: none;
-  background-color: transparent;
-  background-image: url("../../images/like-button.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  cursor: pointer;
-  padding: 0;
-  flex-shrink: 0;
+  top: 12px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
 }
 
 .card__name {
   margin: 0;
-  padding: 2px 12px;
+  padding: 2px 8px;
   background-color: #fff;
   border-radius: 4px;
   font-family: "Cabinet Grotesk", sans-serif;
@@ -49,18 +38,28 @@
   cursor: pointer;
 }
 
-.modal__like-button {
+.card__like-button {
   width: 18px;
   height: 15px;
+  margin-left: 6px;
   border: none;
   background-color: transparent;
+
+  position: relative;
+  top: 1px;
+
   background-image: url("../../images/like-button.svg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
+
   cursor: pointer;
   padding: 0;
+
+  flex-shrink: 0;
 }
 
-.modal__like-button_active {
+.card__like-button_active {
   background-image: url("../../images/like-button-active.svg");
+  background-size: contain;
 }
