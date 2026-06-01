@@ -1,34 +1,49 @@
+.sidebar {
+  width: 229px;
+  flex-shrink: 0;
+}
+
 .sidebar__user-container {
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  margin-right: 20px;
+  margin-bottom: 24px;
 }
 
 .sidebar__avatar {
   width: 56px;
   height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .sidebar__username {
+  margin: 0;
+
   font-size: 20px;
   font-weight: 700;
-  white-space: nowrap;
+  line-height: 1.2;
 }
 
+.sidebar__edit-btn,
 .sidebar__signout-btn {
-  margin-top: 20px;
   border: none;
   background: transparent;
+
+  padding: 0;
+
+  text-align: left;
+
   cursor: pointer;
+
+  font-size: 20px;
   font-weight: 700;
 }
 
 .sidebar__edit-btn {
-  margin-top: 16px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.sidebar__signout-btn {
+  margin: 0;
 }

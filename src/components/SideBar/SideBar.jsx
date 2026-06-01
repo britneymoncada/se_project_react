@@ -9,13 +9,13 @@ export default function SideBar({ onSignOut, onEditProfile }) {
   return (
     <aside className="sidebar">
       <div className="sidebar__user-container">
-        <p className="sidebar__username">{currentUser.name || "User"}</p>
-
         <img
           src={currentUser.avatar || avatarDefault}
           alt="user avatar"
           className="sidebar__avatar"
         />
+
+        <p className="sidebar__username">{currentUser.name || "User"}</p>
       </div>
       <button
         type="button"
