@@ -1,6 +1,6 @@
 import { handleServerResponse } from "./api";
 
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "https://api.soft-shares.com";
 
 export const register = ({ name, avatar, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
