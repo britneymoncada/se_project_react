@@ -20,6 +20,10 @@ The app allows users to:
 - Context API
 - CSS / BEM methodology
 
+Live site: https://soft-shares.com
+Backend repo
+Frontend repo
+
 ## Backend Technologies
 
 - Express.js
@@ -27,6 +31,8 @@ The app allows users to:
 - Mongoose
 - JWT Authentication
 - Node.js
+
+API: https://api.soft-shares.com
 
 ## Features
 
@@ -45,14 +51,15 @@ https://github.com/britneymoncada/se_project_express
 
 ## Frontend Repository
 
-https://github.com/britneymoncada/se_project_react
-=======
+# https://github.com/britneymoncada/se_project_react
+
 [Backend Repository](https://github.com/britneymoncada/se_project_express)
 
 ## Frontend Repository
 
 [Frontend Repository](https://github.com/britneymoncada/se_project_react)
->>>>>>> d5e94a2 (Fix README repository links)
+
+> > > > > > > d5e94a2 (Fix README repository links)
 
 ## Running the Project
 
