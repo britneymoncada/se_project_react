@@ -46,24 +46,12 @@ API: https://api.soft-shares.com
 
 ## Backend Repository
 
-<<<<<<< HEAD
 https://github.com/britneymoncada/se_project_express
 
 ## Frontend Repository
 
-# https://github.com/britneymoncada/se_project_react
-
-[Backend Repository](https://github.com/britneymoncada/se_project_express)
-
-## Frontend Repository
-
-[Frontend Repository](https://github.com/britneymoncada/se_project_react)
-
-> > > > > > > d5e94a2 (Fix README repository links)
-
-## Running the Project
-
-### Frontend
+[# https://github.com/britneymoncada/se_project_react]
+(https://soft-shares.com)
 
 ```bash
 npm install
