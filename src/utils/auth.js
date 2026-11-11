@@ -1,6 +1,6 @@
 import { handleServerResponse } from "./api";
 
-const BASE_URL = "https://api.soft-shares.com";
+const BASE_URL = "https://wtwr-api-z0ma.onrender.com";
 
 export const register = ({ name, avatar, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
