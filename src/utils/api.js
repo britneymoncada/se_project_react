@@ -1,4 +1,4 @@
-const baseUrl = "https://api.soft-shares.com";
+const baseUrl = "https://wtwr-api-z0ma.onrender.com";
 
 export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
